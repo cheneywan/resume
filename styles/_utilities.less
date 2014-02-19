@@ -1,0 +1,50 @@
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+
+.inline-block() {
+   display: inline-block;
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+// Transformations
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees); // IE9 only
+          transform: rotate(@degrees);
+}
+// Animations
+.animation(@animation) {
+  -webkit-animation: @animation;
+          animation: @animation;
+}
+
+
+// Box sizing
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
