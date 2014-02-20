@@ -35,6 +35,12 @@
       -ms-transform: rotate(@degrees); // IE9 only
           transform: rotate(@degrees);
 }
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+          transition: @transition;
+}
+
 // Animations
 .animation(@animation) {
   -webkit-animation: @animation;
