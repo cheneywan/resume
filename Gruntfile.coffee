@@ -20,6 +20,12 @@ module.exports = (grunt) ->
           return true if grunt.file.isDir filepath
           not grunt.util._(sysPath.basename filepath).startsWith '_'
 
+    handlebars:
+      compile:
+        namespace: "JST"
+        files:
+          "public/scripts/temp.js": "temp/*.hbs"
+
     concat:
       js:
         options: separator: ';'
@@ -29,8 +35,11 @@ module.exports = (grunt) ->
           'bower_components/bowser/bowser.js'
           'bower_components/bootstrap/js/transition.js'
           'bower_components/bootstrap/js/modal.js'
+          'bower_components/bootstrap/js/carousel.js'
+          'bower_components/handlebars/handlebars.js'
           'bower_components/spin.js/spin.js'
           'bower_components/spin.js/jquery.spin.js'
+          'public/scripts/temp.js'
           'public/scripts/resume.js'
         ]
       css:
@@ -57,16 +66,30 @@ module.exports = (grunt) ->
       styles:
         files: 'styles/**/*.less'
         tasks: ['less', 'concat']
+      temp:
+        files: 'temp/*.hbs'
+        tasks: ['handlebars', 'concat:js']
       assets:
         files: 'assets/**/*'
         tasks: ['copy']
+
+    uglify:
+      index:
+        options:
+          report: "min"
+        files:
+          'public/index.js': ['public/index.js']
+
   )
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-less'
+  grunt.loadNpmTasks 'grunt-contrib-handlebars'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
 
-  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'copy', 'concat', 'watch']
+  grunt.registerTask 'build', ['clean', 'coffee', 'less', 'handlebars', 'copy', 'concat', 'uglify']
+  grunt.registerTask 'default', ['clean', 'coffee', 'less', 'handlebars', 'copy', 'concat', 'watch']
 

@@ -21,6 +21,7 @@
     "jquery.scrollTo": "~1.4.11",
     "bowser": "~0.3.7",
     "spin.js": "~1.3.3",
-    "normalize.css": "~3.0.0"
+    "normalize.css": "~3.0.0",
+    "handlebars": "~1.3.0"
   }
 }

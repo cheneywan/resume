@@ -1,0 +1,19 @@
+      <div id="works-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          {{#each images}}
+            {{carousel_indicators}}
+          {{/each}}
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <a href="{{url}}" class="carousel-inner" target="_blank">
+          {{#each images}}
+            {{carousel_items}}
+          {{/each}}
+        </a>
+
+        <!-- Controls -->
+        <a class="carousel-left" href="#works-carousel" data-slide="prev"><</a>
+        <a class="carousel-right" href="#works-carousel" data-slide="next">></a>
+      </div>
