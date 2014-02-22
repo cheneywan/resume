@@ -37,8 +37,6 @@ module.exports = (grunt) ->
           'bower_components/bootstrap/js/modal.js'
           'bower_components/bootstrap/js/carousel.js'
           'bower_components/handlebars/handlebars.js'
-          'bower_components/spin.js/spin.js'
-          'bower_components/spin.js/jquery.spin.js'
           'public/scripts/temp.js'
           'public/scripts/resume.js'
         ]

@@ -26,6 +26,7 @@ body {
 a {
   color: #D8D8D8;
   text-decoration: none;
+  outline: none;
   &:hover {
     text-decoration: underline; 
   }
@@ -196,7 +197,7 @@ h1, h2, h3 {
   width: 520px;
   text-align: center;
   .item {
-    margin-top: 20px;
+    margin-top: 23px;
   }
 }
 
@@ -219,4 +220,48 @@ h1, h2, h3 {
 
 .carousel-indicators {
   bottom: -90px;
+}
+
+.alert {
+  padding: 10px;
+  background: #f3c743;
+  font-size: 16px;
+  z-index: 999;
+  .wrap {
+    position: relative;
+    text-align:center;
+    zoom: 1;
+    p, ul {
+      .inline-block();
+      vertical-align: middle;
+    }
+    img {
+      vertical-align: middle;
+    }
+    ul li {
+      .inline-block();
+      margin: 0 5px;
+      a {
+        display: block;
+      }
+    }
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      font-size: 21px;
+      font-weight: bold;
+      line-height: 1;
+      color: #000000;
+      text-shadow: 0 1px 0 #ffffff;
+      opacity: 0.2;
+      background: url(images/detector/close.png) no-repeat center center;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
+    }
+  }
 }
